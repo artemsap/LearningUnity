@@ -5,7 +5,7 @@ using UnityEngine;
 public enum Brush
 {
     Circle,
-    Quad    
+    Quad
 }
 
 public class PaintScript : MonoBehaviour
@@ -26,7 +26,7 @@ public class PaintScript : MonoBehaviour
 
     private Collider _collider;
     private Texture2D _texture;
-    private int oldX; 
+    private int oldX;
     private int OldY;
 
     private void OnValidate()
@@ -88,6 +88,7 @@ public class PaintScript : MonoBehaviour
     void PaintQuad(int RayX, int RayY)
     {
         for (int x = -_brushSize / 2; x < _brushSize / 2; x++)
+        {
             for (int y = -_brushSize / 2; y < _brushSize / 2; y++)
             {
                 var Xpixel = RayX + x;
@@ -116,7 +117,7 @@ public class PaintScript : MonoBehaviour
                 else
                     _texture.SetPixel(Xpixel, Ypixel, tmpColor);
             }
-               
+        }
     }
 
     void PaintCircle(int RayX, int RayY)
@@ -124,6 +125,7 @@ public class PaintScript : MonoBehaviour
         var CircleRad = _brushSize / 2;
 
         for (int x = -CircleRad; x < CircleRad; x++)
+        {
             for (int y = -CircleRad; y < CircleRad; y++)
             {
                 float _x2 = x * x;
@@ -136,7 +138,7 @@ public class PaintScript : MonoBehaviour
                 if (_x2 + _y2 < _r2)
                 {
                     float rIn = CircleRad * _brushHardness * CircleRad * _brushHardness;
-                    float interpolate = Mathf.InverseLerp(rIn, CircleRad*CircleRad, _x2 + _y2);
+                    float interpolate = Mathf.InverseLerp(rIn, CircleRad * CircleRad, _x2 + _y2);
                     var tmpColor = Color.Lerp(_brushColor, new Color(_brushColor.r, _brushColor.g, _brushColor.b, 0), interpolate);
 
                     if (_mixing)
@@ -148,9 +150,7 @@ public class PaintScript : MonoBehaviour
                     else
                         _texture.SetPixel(Xpixel, Ypixel, tmpColor);
                 }
-
-                    
             }
+        }
     }
-
 }
