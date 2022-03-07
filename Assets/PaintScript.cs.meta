@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 2ac5297df4bc8bb4abfff3387deabcb4
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - _texture: {instanceID: 0}
+  - _material: {fileID: 2100000, guid: 83fceff85e56de94fb0a5af0d3e6f050, type: 2}
+  - _camera: {instanceID: 0}
+  - _collider: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
